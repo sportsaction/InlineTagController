@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "27BD791F1F13F1DE0018832A"
-               BuildableName = "InlineTagController.framework"
-               BlueprintName = "InlineTagController"
+               BlueprintIdentifier = "27BD793A1F13F2680018832A"
+               BuildableName = "Example.app"
+               BlueprintName = "Example"
                ReferencedContainer = "container:InlineTagController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "27BD793A1F13F2680018832A"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
+            ReferencedContainer = "container:InlineTagController.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "27BD791F1F13F1DE0018832A"
-            BuildableName = "InlineTagController.framework"
-            BlueprintName = "InlineTagController"
+            BlueprintIdentifier = "27BD793A1F13F2680018832A"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:InlineTagController.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "27BD791F1F13F1DE0018832A"
-            BuildableName = "InlineTagController.framework"
-            BlueprintName = "InlineTagController"
+            BlueprintIdentifier = "27BD793A1F13F2680018832A"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:InlineTagController.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

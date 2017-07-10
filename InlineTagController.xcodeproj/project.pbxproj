@@ -8,16 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		27BD79251F13F1DE0018832A /* InlineTagController.h in Headers */ = {isa = PBXBuildFile; fileRef = 27BD79231F13F1DE0018832A /* InlineTagController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		27BD79321F13F2060018832A /* InlineTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792D1F13F2060018832A /* InlineTagCell.swift */; };
+		27BD79331F13F2060018832A /* InlineTagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792E1F13F2060018832A /* InlineTagController.swift */; };
+		27BD79341F13F2060018832A /* InlineTagControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792F1F13F2060018832A /* InlineTagControllerConfiguration.swift */; };
+		27BD79351F13F2060018832A /* InlineTagControllerFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD79301F13F2060018832A /* InlineTagControllerFlowLayout.swift */; };
+		27BD79361F13F2060018832A /* InlineTagControllerValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD79311F13F2060018832A /* InlineTagControllerValidation.swift */; };
+		27BD793E1F13F2680018832A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD793D1F13F2680018832A /* AppDelegate.swift */; };
+		27BD79401F13F2680018832A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD793F1F13F2680018832A /* ViewController.swift */; };
+		27BD79431F13F2680018832A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BD79411F13F2680018832A /* Main.storyboard */; };
+		27BD79451F13F2680018832A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27BD79441F13F2680018832A /* Assets.xcassets */; };
+		27BD79481F13F2680018832A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BD79461F13F2680018832A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27BD79201F13F1DE0018832A /* InlineTagController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InlineTagController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27BD79231F13F1DE0018832A /* InlineTagController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InlineTagController.h; sourceTree = "<group>"; };
 		27BD79241F13F1DE0018832A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27BD792D1F13F2060018832A /* InlineTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineTagCell.swift; sourceTree = "<group>"; };
+		27BD792E1F13F2060018832A /* InlineTagController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineTagController.swift; sourceTree = "<group>"; };
+		27BD792F1F13F2060018832A /* InlineTagControllerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineTagControllerConfiguration.swift; sourceTree = "<group>"; };
+		27BD79301F13F2060018832A /* InlineTagControllerFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineTagControllerFlowLayout.swift; sourceTree = "<group>"; };
+		27BD79311F13F2060018832A /* InlineTagControllerValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineTagControllerValidation.swift; sourceTree = "<group>"; };
+		27BD793B1F13F2680018832A /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27BD793D1F13F2680018832A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27BD793F1F13F2680018832A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27BD79421F13F2680018832A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27BD79441F13F2680018832A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27BD79471F13F2680018832A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27BD79491F13F2680018832A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		27BD791C1F13F1DE0018832A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BD79381F13F2680018832A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				27BD79221F13F1DE0018832A /* InlineTagController */,
+				27BD793C1F13F2680018832A /* Example */,
 				27BD79211F13F1DE0018832A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				27BD79201F13F1DE0018832A /* InlineTagController.framework */,
+				27BD793B1F13F2680018832A /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,10 +77,44 @@
 		27BD79221F13F1DE0018832A /* InlineTagController */ = {
 			isa = PBXGroup;
 			children = (
+				27BD792C1F13F1E70018832A /* Source */,
+				27BD792B1F13F1E30018832A /* Framework Files */,
+			);
+			path = InlineTagController;
+			sourceTree = "<group>";
+		};
+		27BD792B1F13F1E30018832A /* Framework Files */ = {
+			isa = PBXGroup;
+			children = (
 				27BD79231F13F1DE0018832A /* InlineTagController.h */,
 				27BD79241F13F1DE0018832A /* Info.plist */,
 			);
-			path = InlineTagController;
+			name = "Framework Files";
+			sourceTree = "<group>";
+		};
+		27BD792C1F13F1E70018832A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				27BD792D1F13F2060018832A /* InlineTagCell.swift */,
+				27BD792E1F13F2060018832A /* InlineTagController.swift */,
+				27BD792F1F13F2060018832A /* InlineTagControllerConfiguration.swift */,
+				27BD79301F13F2060018832A /* InlineTagControllerFlowLayout.swift */,
+				27BD79311F13F2060018832A /* InlineTagControllerValidation.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		27BD793C1F13F2680018832A /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				27BD793D1F13F2680018832A /* AppDelegate.swift */,
+				27BD793F1F13F2680018832A /* ViewController.swift */,
+				27BD79411F13F2680018832A /* Main.storyboard */,
+				27BD79441F13F2680018832A /* Assets.xcassets */,
+				27BD79461F13F2680018832A /* LaunchScreen.storyboard */,
+				27BD79491F13F2680018832A /* Info.plist */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,16 +149,40 @@
 			productReference = 27BD79201F13F1DE0018832A /* InlineTagController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		27BD793A1F13F2680018832A /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27BD794A1F13F2680018832A /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				27BD79371F13F2680018832A /* Sources */,
+				27BD79381F13F2680018832A /* Frameworks */,
+				27BD79391F13F2680018832A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example;
+			productName = Example;
+			productReference = 27BD793B1F13F2680018832A /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		27BD79171F13F1DE0018832A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Kyle Begeman";
 				TargetAttributes = {
 					27BD791F1F13F1DE0018832A = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = R28MS7GZ3H;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					27BD793A1F13F2680018832A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = R28MS7GZ3H;
 						ProvisioningStyle = Automatic;
@@ -106,6 +195,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 27BD79161F13F1DE0018832A;
 			productRefGroup = 27BD79211F13F1DE0018832A /* Products */;
@@ -113,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				27BD791F1F13F1DE0018832A /* InlineTagController */,
+				27BD793A1F13F2680018832A /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -125,6 +216,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27BD79391F13F2680018832A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BD79481F13F2680018832A /* LaunchScreen.storyboard in Resources */,
+				27BD79451F13F2680018832A /* Assets.xcassets in Resources */,
+				27BD79431F13F2680018832A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -132,10 +233,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27BD79321F13F2060018832A /* InlineTagCell.swift in Sources */,
+				27BD79341F13F2060018832A /* InlineTagControllerConfiguration.swift in Sources */,
+				27BD79331F13F2060018832A /* InlineTagController.swift in Sources */,
+				27BD79351F13F2060018832A /* InlineTagControllerFlowLayout.swift in Sources */,
+				27BD79361F13F2060018832A /* InlineTagControllerValidation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BD79371F13F2680018832A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BD79401F13F2680018832A /* ViewController.swift in Sources */,
+				27BD793E1F13F2680018832A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		27BD79411F13F2680018832A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27BD79421F13F2680018832A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		27BD79461F13F2680018832A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27BD79471F13F2680018832A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		27BD79261F13F1DE0018832A /* Debug */ = {
@@ -242,6 +376,28 @@
 		27BD79291F13F1DE0018832A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R28MS7GZ3H;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InlineTagController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylebegeman.InlineTagController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		27BD792A1F13F1DE0018832A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R28MS7GZ3H;
@@ -256,23 +412,30 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
-			name = Debug;
+			name = Release;
 		};
-		27BD792A1F13F1DE0018832A /* Release */ = {
+		27BD794B1F13F2680018832A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R28MS7GZ3H;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = InlineTagController/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kylebegeman.InlineTagController;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylebegeman.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		27BD794C1F13F2680018832A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R28MS7GZ3H;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylebegeman.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -294,6 +457,14 @@
 			buildConfigurations = (
 				27BD79291F13F1DE0018832A /* Debug */,
 				27BD792A1F13F1DE0018832A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		27BD794A1F13F2680018832A /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BD794B1F13F2680018832A /* Debug */,
+				27BD794C1F13F2680018832A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
