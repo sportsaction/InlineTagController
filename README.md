@@ -8,11 +8,11 @@ This class is a direct copy of TFBubbleItUp https://github.com/thefuntasty/TFBub
 
 ## Inline creation, editing and deletion
 
-![TagCreation](InlineTagController/Resources/tagging.gif)
+![TagCreation](https://user-images.githubusercontent.com/1012880/28084762-8681d8ba-662e-11e7-8569-fd9ea9d31bf6.GIF)
 
 ## Validation
 
-![TagValidation](InlineTagController/Resources/validation.gif)
+![TagValidation](https://user-images.githubusercontent.com/1012880/28084776-8fa44ee6-662e-11e7-9cb5-3e0760725f70.GIF)
 
 ## Usage
 ### Setup
