@@ -165,7 +165,7 @@ public class InlineTagController: UICollectionView {
         }
     }
 
-    public func setTags(tags: [Tag]) {
+    internal func configure(with tags: [Tag]) {
         self.tags = tags
 
         CATransaction.begin()
@@ -178,13 +178,13 @@ public class InlineTagController: UICollectionView {
         CATransaction.commit()
     }
 
-    public func setStringItems(items: [String]) {
+    public func setTags(_ tags: [String]) {
         // Set new items
-        let tagItems = tags.map { (tag) -> Tag in
-            return Tag(text: tag.text)
+        let tagItems = tags.map { (tag: String) -> Tag in
+            return Tag(text: tag)
         }
 
-        self.setTags(tags: tagItems)
+        self.configure(with: tagItems)
     }
 
     public func setPlaceholderText(text: String) {
