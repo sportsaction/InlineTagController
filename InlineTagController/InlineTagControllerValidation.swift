@@ -10,6 +10,11 @@ import Foundation
 
 public typealias Validation = (String) -> Bool
 
+infix operator |>>: ExponentiativePrecedence
+public func |>> (v1: @escaping Validation, v2: @escaping Validation) -> Validation {
+    return { text in return v1(text) && v2(text) }
+}
+
 public class InlineTagControllerValidation {
 
     public class var testEmptiness: Validation {

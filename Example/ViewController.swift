@@ -20,7 +20,7 @@ class ViewController: UIViewController, InlineTagControllerDelegate {
         tagController.tagDelegate = self
         tagController.setPlaceholderText(text: "Enter new tags...")
 
-        InlineTagControllerConfiguration.itemValidation = InlineTagControllerValidation.testEmptiness
+        InlineTagControllerConfiguration.itemValidation = InlineTagControllerValidation.testEmailAddress |>> InlineTagControllerValidation.testEmptiness
         InlineTagControllerConfiguration.numberOfTags = .quantity(5) // .unlimited also available
     }
 
