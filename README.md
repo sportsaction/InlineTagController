@@ -20,7 +20,7 @@ This class is a direct copy of TFBubbleItUp https://github.com/thefuntasty/TFBub
 
 ![TagValidation](https://user-images.githubusercontent.com/1012880/28084776-8fa44ee6-662e-11e7-9cb5-3e0760725f70.GIF)
 
-## Usage
+# Usage
 ### Setup
 
 Add a UIView as a subview and set its class to `InputTagController` in the identity inspector. Provide position constraints and omit a height constraint. Open the Size inspector and set `Intrinsic Size` to `Placeholder`. InputTagController will resize to fit its content. 
@@ -83,6 +83,17 @@ InlineTagControllerConfiguration.numberOfTags = .quantity(3)
 ```
 
 When the tag limit is reached, the text fields will no longer activate when tapping the view. Instead, the last tag will transition to the **edit** state. Setting to **.unlimited** will auto-resize the view based on the intrinsic content size. 
+
+### Delegates
+
+Similar to any text field, **InlineTagControllerDelegate** gives you access to the real time text while typing new tags, and each final tag once created (will not be called if validation fails)
+
+```
+public protocol InlineTagControllerDelegate: class {
+    func inlineTagController(_ controller: InlineTagController, didFinishEditing text: String)
+    func inlineTagController(_ controller: InlineTagController, didChange text: String)
+}
+```
 
 ### Configuration
 
