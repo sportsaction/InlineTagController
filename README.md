@@ -1,4 +1,10 @@
 # InlineTagController
+
+[![MIT license](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://rawgit.com/jlyonsmith/artwork/master/SwiftPackageManager/swiftpackagemanager-compatible.svg)](https://swift.org/package-manager/)
+
 Inline tag creation, validation and editing. Completely configurable and supports multiple custom validation blocks.
 
 # Original Source
@@ -161,6 +167,7 @@ public static var itemValidation: Validation? = nil
 - Compile in Swift 3.2 and Swift 4.0
 - Replace **InlineTagControllerConfiguration** with a protocol; allow this to be passed in for easier custom configuration.
 - Add this repo to CocoaPods
+- Configure for Swift Package Manager
 
 ## Requirements
 
@@ -171,7 +178,7 @@ InlineTagController uses Swift 3.1. Target deployment iOS 9.0 and higher.
 Download or clone the repo directly. If using Carthage, add this line to your Carfile: 
 
 ```swift
-github "kylebegeman/InlineTagController" ~> 1.0
+github "kylebegeman/InlineTagController" ~> 0.1
 ```
 
 ## Author
