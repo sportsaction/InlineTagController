@@ -16,6 +16,6 @@ This class is a direct copy of TFBubbleItUp https://github.com/thefuntasty/TFBub
 
 # Usage
 
-Add a UIView as a subview and set its class to InputTagController in the identity inspector. Provide position constraints and omit a height constraint. Open the Size inspector and set Intrinsic Content Size to placeholder. InputTagController will resize to fit its content. 
+Add a UIView as a subview and set its class to `InputTagController` in the identity inspector. Provide position constraints and omit a height constraint. Open the Size inspector and set `Intrinsic Size` to `Placeholder`. InputTagController will resize to fit its content. 
 
 
