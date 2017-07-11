@@ -166,8 +166,6 @@ public static var itemValidation: Validation? = nil
 
 - Compile in Swift 3.2 and Swift 4.0
 - Replace **InlineTagControllerConfiguration** with a protocol; allow this to be passed in for easier custom configuration.
-- Add this repo to CocoaPods
-- Configure for Swift Package Manager
 
 ## Requirements
 
@@ -175,7 +173,16 @@ InlineTagController uses Swift 3.1. Target deployment iOS 9.0 and higher.
 
 ## Installation
 
-Download or clone the repo directly. If using Carthage, add this line to your Carfile: 
+### Swift Package Manager
+To add InlineTagController to a [Swift Package Manager](https://swift.org/package-manager/) based project, add:
+
+```swift
+.Package(url: "https://github.com/kylebegeman/InlineTagController.git", majorVersion: 0, minor: 1),
+```
+to your `Package.swift` files `dependencies` array.
+
+### Carthage
+If you're using [Carthage](https://github.com/Carthage/Carthage) you can add InlineTagController by updating your `Cartfile`: 
 
 ```swift
 github "kylebegeman/InlineTagController" ~> 0.1
