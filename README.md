@@ -88,7 +88,7 @@ When the tag limit is reached, the text fields will no longer activate when tapp
 
 Similar to any text field, **InlineTagControllerDelegate** gives you access to the real time text while typing new tags, and each final tag once created (will not be called if validation fails)
 
-```
+```swift
 public protocol InlineTagControllerDelegate: class {
     func inlineTagController(_ controller: InlineTagController, didFinishEditing text: String)
     func inlineTagController(_ controller: InlineTagController, didChange text: String)
