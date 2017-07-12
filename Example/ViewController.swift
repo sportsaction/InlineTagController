@@ -17,11 +17,9 @@ class ViewController: UIViewController, InlineTagControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        tagController.setConfiguration(CustomConfiguration())
         tagController.tagDelegate = self
         tagController.setPlaceholderText(text: "Enter new tags...")
-
-        InlineTagControllerConfiguration.itemValidation = InlineTagControllerValidation.testEmptiness
-        InlineTagControllerConfiguration.numberOfTags = .quantity(5) // .unlimited also available
     }
 
     func inlineTagController(_ controller: InlineTagController, didFinishEditing text: String) {
@@ -34,3 +32,9 @@ class ViewController: UIViewController, InlineTagControllerDelegate {
 
 }
 
+class CustomConfiguration: InlineTagConfigurable {
+    var backgroundColor: ColorCollection = (view: UIColor.black, edit: UIColor.lightGray, invalid: UIColor.blue, placeholder: UIColor.green)
+    var radius: ValueCollection = (view: 4.0, edit: 0.0, invalid: 8.0)
+
+    var cellHeight: Float = 12.0
+}

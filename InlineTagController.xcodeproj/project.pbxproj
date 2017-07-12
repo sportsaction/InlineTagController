@@ -10,7 +10,7 @@
 		27BD79251F13F1DE0018832A /* InlineTagController.h in Headers */ = {isa = PBXBuildFile; fileRef = 27BD79231F13F1DE0018832A /* InlineTagController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27BD79321F13F2060018832A /* InlineTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792D1F13F2060018832A /* InlineTagCell.swift */; };
 		27BD79331F13F2060018832A /* InlineTagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792E1F13F2060018832A /* InlineTagController.swift */; };
-		27BD79341F13F2060018832A /* InlineTagControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792F1F13F2060018832A /* InlineTagControllerConfiguration.swift */; };
+		27BD79341F13F2060018832A /* InlineTagConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD792F1F13F2060018832A /* InlineTagConfigurable.swift */; };
 		27BD79351F13F2060018832A /* InlineTagControllerFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD79301F13F2060018832A /* InlineTagControllerFlowLayout.swift */; };
 		27BD79361F13F2060018832A /* InlineTagControllerValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD79311F13F2060018832A /* InlineTagControllerValidation.swift */; };
 		27BD793E1F13F2680018832A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD793D1F13F2680018832A /* AppDelegate.swift */; };
@@ -26,7 +26,7 @@
 		27BD79241F13F1DE0018832A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27BD792D1F13F2060018832A /* InlineTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InlineTagCell.swift; path = /Users/kyle/Desktop/InlineTagController/Sources/InlineTagCell.swift; sourceTree = "<absolute>"; };
 		27BD792E1F13F2060018832A /* InlineTagController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InlineTagController.swift; path = /Users/kyle/Desktop/InlineTagController/InlineTagController/../Sources/InlineTagController.swift; sourceTree = "<absolute>"; };
-		27BD792F1F13F2060018832A /* InlineTagControllerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InlineTagControllerConfiguration.swift; path = /Users/kyle/Desktop/InlineTagController/InlineTagController/../Sources/InlineTagControllerConfiguration.swift; sourceTree = "<absolute>"; };
+		27BD792F1F13F2060018832A /* InlineTagConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InlineTagConfigurable.swift; path = /Users/kyle/Desktop/InlineTagController/Sources/InlineTagConfigurable.swift; sourceTree = "<absolute>"; };
 		27BD79301F13F2060018832A /* InlineTagControllerFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InlineTagControllerFlowLayout.swift; path = /Users/kyle/Desktop/InlineTagController/InlineTagController/../Sources/InlineTagControllerFlowLayout.swift; sourceTree = "<absolute>"; };
 		27BD79311F13F2060018832A /* InlineTagControllerValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InlineTagControllerValidation.swift; path = /Users/kyle/Desktop/InlineTagController/InlineTagController/../Sources/InlineTagControllerValidation.swift; sourceTree = "<absolute>"; };
 		27BD793B1F13F2680018832A /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 			children = (
 				27BD792D1F13F2060018832A /* InlineTagCell.swift */,
 				27BD792E1F13F2060018832A /* InlineTagController.swift */,
-				27BD792F1F13F2060018832A /* InlineTagControllerConfiguration.swift */,
+				27BD792F1F13F2060018832A /* InlineTagConfigurable.swift */,
 				27BD79301F13F2060018832A /* InlineTagControllerFlowLayout.swift */,
 				27BD79311F13F2060018832A /* InlineTagControllerValidation.swift */,
 			);
@@ -234,7 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BD79321F13F2060018832A /* InlineTagCell.swift in Sources */,
-				27BD79341F13F2060018832A /* InlineTagControllerConfiguration.swift in Sources */,
+				27BD79341F13F2060018832A /* InlineTagConfigurable.swift in Sources */,
 				27BD79331F13F2060018832A /* InlineTagController.swift in Sources */,
 				27BD79351F13F2060018832A /* InlineTagControllerFlowLayout.swift in Sources */,
 				27BD79361F13F2060018832A /* InlineTagControllerValidation.swift in Sources */,

@@ -74,9 +74,12 @@ public class InlineTagController: UICollectionView {
         return CGSize(width: self.bounds.width, height: max(self.minimumHeight(), size.height))
     }
 
-    private func customInit() {
-        sizingCell = InlineTagCell(frame: CGRect(x: 0, y: 0, width: 100, height: CGFloat(InlineTagControllerConfiguration.cellHeight)))
+    public func setConfiguration(_ config: InlineTagConfigurable) {
+        Config.instance.set(config: config)
+        updateForConfig()
+    }
 
+    private func customInit() {
         self.backgroundColor = UIColor.white
         var frame = self.bounds
         frame.size.height = minimumHeight()
@@ -85,28 +88,34 @@ public class InlineTagController: UICollectionView {
         let view = UIView(frame: frame)
         view.addSubview(self.placeholderLabel)
 
-        self.placeholderLabel.font = InlineTagControllerConfiguration.placeholderFont
-        self.placeholderLabel.textColor = InlineTagControllerConfiguration.placeholderFontColor
-
         self.backgroundView = view
         self.register(InlineTagCell.self, forCellWithReuseIdentifier: InlineTagCell.identifier)
 
         self.dataSource = self
         self.delegate = self
 
-        if let layout = self.collectionViewLayout as? InlineTagControllerFlowLayout {
-            layout.sectionInset = InlineTagControllerConfiguration.inset
-            layout.minimumInteritemSpacing = InlineTagControllerConfiguration.interitemSpacing
-            layout.minimumLineSpacing = InlineTagControllerConfiguration.lineSpacing
-        }
-
         self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnView(_:)))
         self.addGestureRecognizer(self.tapRecognizer)
+
+        updateForConfig()
+    }
+
+    private func updateForConfig() {
+        sizingCell = InlineTagCell(frame: CGRect(x: 0, y: 0, width: 100, height: CGFloat(TagConfig.cellHeight)))
+
+        if let layout = self.collectionViewLayout as? InlineTagControllerFlowLayout {
+            layout.sectionInset = TagConfig.inset
+            layout.minimumInteritemSpacing = TagConfig.interitemSpacing
+            layout.minimumLineSpacing = TagConfig.lineSpacing
+        }
+
+        self.placeholderLabel.font = TagConfig.font.placeholder
+        self.placeholderLabel.textColor = TagConfig.fontColor.placeholder
     }
 
     private func minimumHeight() -> CGFloat {
-        let defaultHeight: CGFloat = CGFloat(InlineTagControllerConfiguration.cellHeight)
-        let padding = InlineTagControllerConfiguration.inset.top + InlineTagControllerConfiguration.inset.bottom
+        let defaultHeight: CGFloat = CGFloat(TagConfig.cellHeight)
+        let padding = TagConfig.inset.top + TagConfig.inset.bottom
 
         return defaultHeight + padding
     }
@@ -158,7 +167,7 @@ public class InlineTagController: UICollectionView {
     }
 
     private func isTextValid(text: String) -> Bool {
-        if let validation = InlineTagControllerConfiguration.itemValidation {
+        if let validation = TagConfig.itemValidation {
             return validation(text)
         } else {
             return true
@@ -223,7 +232,7 @@ extension InlineTagController {
     }
 
     private func replaceLastInvalidOrInsertItemText(text: String, switchToNext: Bool = true, completion: (() -> ())? = nil) {
-        if let validator = InlineTagControllerConfiguration.itemValidation, let tag = self.tags.last, !validator(tag.text) {
+        if let validator = TagConfig.itemValidation, let tag = self.tags.last, !validator(tag.text) {
             let position = self.tags.index(where: { (i) -> Bool in
                 i.text == tag.text
             })
@@ -335,7 +344,7 @@ extension InlineTagController: UICollectionViewDelegate, UICollectionViewDataSou
         let layoutInset = (self.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
         let maximumWidth = self.bounds.width - layoutInset.left - layoutInset.right
 
-        return CGSize(width: min(size.width, maximumWidth), height: CGFloat(InlineTagControllerConfiguration.cellHeight))
+        return CGSize(width: min(size.width, maximumWidth), height: CGFloat(TagConfig.cellHeight))
     }
     
 }
@@ -401,7 +410,7 @@ extension InlineTagController: InlineTagCellDelegate {
     }
 
     internal func needPreciseNumberOfItems() -> Int? {
-        switch InlineTagControllerConfiguration.numberOfTags {
+        switch TagConfig.numberOfTags {
         case .unlimited:
             return nil
         case let .quantity(value):

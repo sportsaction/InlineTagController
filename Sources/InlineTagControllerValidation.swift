@@ -36,7 +36,7 @@ public class InlineTagControllerValidation {
     }
 
     public class func isValid(text: String?) -> Bool {
-        if let t = text, let validation = InlineTagControllerConfiguration.itemValidation {
+        if let t = text, let validation = TagConfig.itemValidation {
             return validation(t)
         } else {
             return true
