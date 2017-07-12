@@ -84,10 +84,10 @@ class InlineTagCell: UICollectionViewCell, UITextFieldDelegate {
         self.textField.textAlignment = .center
         self.textField.contentMode = .left
 
-        self.textField.keyboardType = InlineTagControllerConfiguration.keyboardType
-        self.textField.returnKeyType = InlineTagControllerConfiguration.returnKey
-        self.textField.autocapitalizationType = InlineTagControllerConfiguration.autoCapitalization
-        self.textField.autocorrectionType = InlineTagControllerConfiguration.autoCorrection
+        self.textField.keyboardType = TagConfig.keyboardType
+        self.textField.returnKeyType = TagConfig.returnKey
+        self.textField.autocapitalizationType = TagConfig.autoCapitalization
+        self.textField.autocorrectionType = TagConfig.autoCorrection
 
         set(mode: .view)
     }
@@ -121,28 +121,28 @@ class InlineTagCell: UICollectionViewCell, UITextFieldDelegate {
 
         switch m {
         case .edit:
-            textField.backgroundColor = InlineTagControllerConfiguration.editBackgroundColor
-            textField.font = InlineTagControllerConfiguration.editFont
-            textField.textColor = InlineTagControllerConfiguration.editFontColor
+            textField.backgroundColor = TagConfig.backgroundColor.edit
+            textField.font = TagConfig.font.edit
+            textField.textColor = TagConfig.fontColor.edit
 
-            self.backgroundColor = InlineTagControllerConfiguration.editBackgroundColor
-            self.layer.cornerRadius = CGFloat(InlineTagControllerConfiguration.editCornerRadius)
+            self.backgroundColor = TagConfig.backgroundColor.edit
+            self.layer.cornerRadius = TagConfig.radius.edit
 
         case .view:
-            textField.backgroundColor = InlineTagControllerConfiguration.viewBackgroundColor
-            textField.font = InlineTagControllerConfiguration.viewFont
-            textField.textColor = InlineTagControllerConfiguration.viewFontColor
+            textField.backgroundColor = TagConfig.backgroundColor.view
+            textField.font = TagConfig.font.view
+            textField.textColor = TagConfig.fontColor.view
 
-            self.backgroundColor = InlineTagControllerConfiguration.viewBackgroundColor
-            self.layer.cornerRadius = CGFloat(InlineTagControllerConfiguration.viewCornerRadius)
+            self.backgroundColor = TagConfig.backgroundColor.view
+            self.layer.cornerRadius = TagConfig.radius.view
 
         case .invalid:
-            textField.backgroundColor = InlineTagControllerConfiguration.invalidBackgroundColor
-            textField.font = InlineTagControllerConfiguration.invalidFont
-            textField.textColor = InlineTagControllerConfiguration.invalidFontColor
+            textField.backgroundColor = TagConfig.backgroundColor.invalid
+            textField.font = TagConfig.font.invalid
+            textField.textColor = TagConfig.fontColor.invalid
 
-            self.backgroundColor = InlineTagControllerConfiguration.invalidBackgroundColor
-            self.layer.cornerRadius = CGFloat(InlineTagControllerConfiguration.invalidCornerRadius)
+            self.backgroundColor = TagConfig.backgroundColor.invalid
+            self.layer.cornerRadius = TagConfig.radius.invalid
         }
 
         self.mode = mode
@@ -159,7 +159,7 @@ class InlineTagCell: UICollectionViewCell, UITextFieldDelegate {
 extension InlineTagCell {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string == " " && InlineTagControllerConfiguration.skipOnWhitespace && InlineTagControllerValidation.isValid(text: self.textField.text) {
+        if string == " " && TagConfig.skipOnWhitespace && InlineTagControllerValidation.isValid(text: self.textField.text) {
             self.delegate?.createAndSwitchToNewCell(cell: self)
         } else if string == "" && textField.text == "" {
             self.delegate?.shouldDeleteCellInFrontOfCell(cell: self)
@@ -171,7 +171,7 @@ extension InlineTagCell {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if InlineTagControllerConfiguration.skipOnReturnKey {
+        if TagConfig.skipOnReturnKey {
             if !InlineTagControllerValidation.isValid(text: textField.text) {
                 return false
             }
