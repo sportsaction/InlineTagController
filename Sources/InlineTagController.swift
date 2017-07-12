@@ -61,12 +61,12 @@ public class InlineTagController: UICollectionView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.collectionViewLayout = InlineTagControllerFlowLayout()
-        self.customInit()
+        self.commonInit()
     }
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: InlineTagControllerFlowLayout())
-        self.customInit()
+        self.commonInit()
     }
 
     override public var intrinsicContentSize: CGSize {
@@ -74,21 +74,13 @@ public class InlineTagController: UICollectionView {
         return CGSize(width: self.bounds.width, height: max(self.minimumHeight(), size.height))
     }
 
-    public func setConfiguration(_ config: InlineTagConfigurable) {
+    public func setConfiguration(_ config: InlineTagConfigurable = DefaultConfiguration()) {
         Config.instance.set(config: config)
-        updateForConfig()
+        configure()
     }
 
-    private func customInit() {
+    private func commonInit() {
         self.backgroundColor = UIColor.white
-        var frame = self.bounds
-        frame.size.height = minimumHeight()
-
-        placeholderLabel = UILabel(frame: frame.insetBy(dx: 20, dy: 0))
-        let view = UIView(frame: frame)
-        view.addSubview(self.placeholderLabel)
-
-        self.backgroundView = view
         self.register(InlineTagCell.self, forCellWithReuseIdentifier: InlineTagCell.identifier)
 
         self.dataSource = self
@@ -96,11 +88,21 @@ public class InlineTagController: UICollectionView {
 
         self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnView(_:)))
         self.addGestureRecognizer(self.tapRecognizer)
-
-        updateForConfig()
     }
 
-    private func updateForConfig() {
+    private func configure() {
+        var frame = self.bounds
+        frame.size.height = minimumHeight()
+
+        placeholderLabel = UILabel(frame: frame.insetBy(dx: 20, dy: 0))
+        placeholderLabel.font = TagConfig.font.placeholder
+        placeholderLabel.textColor = TagConfig.fontColor.placeholder
+        placeholderLabel.text = TagConfig.placeholderText
+
+        let view = UIView(frame: frame)
+        view.addSubview(placeholderLabel)
+        self.backgroundView = view
+
         sizingCell = InlineTagCell(frame: CGRect(x: 0, y: 0, width: 100, height: CGFloat(TagConfig.cellHeight)))
 
         if let layout = self.collectionViewLayout as? InlineTagControllerFlowLayout {
@@ -108,9 +110,6 @@ public class InlineTagController: UICollectionView {
             layout.minimumInteritemSpacing = TagConfig.interitemSpacing
             layout.minimumLineSpacing = TagConfig.lineSpacing
         }
-
-        self.placeholderLabel.font = TagConfig.font.placeholder
-        self.placeholderLabel.textColor = TagConfig.fontColor.placeholder
     }
 
     private func minimumHeight() -> CGFloat {
@@ -194,10 +193,6 @@ public class InlineTagController: UICollectionView {
         }
 
         self.configure(with: tagItems)
-    }
-
-    public func setPlaceholderText(text: String) {
-        self.placeholderLabel.text = text
     }
 
 }

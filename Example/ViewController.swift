@@ -19,7 +19,6 @@ class ViewController: UIViewController, InlineTagControllerDelegate {
 
         tagController.setConfiguration(CustomConfiguration())
         tagController.tagDelegate = self
-        tagController.setPlaceholderText(text: "Enter new tags...")
     }
 
     func inlineTagController(_ controller: InlineTagController, didFinishEditing text: String) {
@@ -33,8 +32,17 @@ class ViewController: UIViewController, InlineTagControllerDelegate {
 }
 
 class CustomConfiguration: InlineTagConfigurable {
-    var backgroundColor: ColorCollection = (view: UIColor.black, edit: UIColor.lightGray, invalid: UIColor.blue, placeholder: UIColor.green)
-    var radius: ValueCollection = (view: 4.0, edit: 0.0, invalid: 8.0)
+    var backgroundColor: ColorCollection = (view: UIColor.black, edit: UIColor.white, invalid: UIColor.blue, placeholder: UIColor.green)
+    var radius: ValueCollection = (view: 10.0, edit: 10.0, invalid: 10.0)
 
-    var cellHeight: Float = 12.0
+
+    var font: FontCollection {
+        let tagFont = UIFont.systemFont(ofSize: 14.0)
+        return (view: tagFont, edit: tagFont, invalid: tagFont, placeholder: tagFont)
+    }
+    
+    var cellHeight: Float = 20.0
+    var inset: UIEdgeInsets = UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
+
+    // Note: Any properties of 'InlineTagConfigurable' not implemented will use default values provided by the framework.
 }

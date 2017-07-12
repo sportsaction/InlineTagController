@@ -9,6 +9,18 @@
 import Foundation
 import UIKit
 
+internal class Config {
+    static let instance = Config()
+    private init() {
+        configuration = DefaultConfiguration()
+    }
+
+    var configuration: InlineTagConfigurable
+    func set(config: InlineTagConfigurable) {
+        self.configuration = config
+    }
+}
+
 public typealias ColorCollection = (view: UIColor, edit: UIColor, invalid: UIColor, placeholder: UIColor?)
 public typealias FontCollection = (view: UIFont, edit: UIFont, invalid: UIFont, placeholder: UIFont)
 public typealias ValueCollection = (view: CGFloat, edit: CGFloat, invalid: CGFloat)
@@ -17,6 +29,9 @@ public enum NumberOfTags {
     case unlimited
     case quantity(Int)
 }
+
+public class DefaultConfiguration: InlineTagConfigurable {}
+public let TagConfig = Config.instance.configuration
 
 public protocol InlineTagConfigurable {
     var backgroundColor: ColorCollection { get }
@@ -34,6 +49,7 @@ public protocol InlineTagConfigurable {
     var autoCorrection: UITextAutocorrectionType { get }
     var skipOnWhitespace: Bool { get }
     var skipOnReturnKey: Bool { get }
+    var placeholderText: String { get }
     var numberOfTags: NumberOfTags { get }
     var itemValidation: Validation? { get }
 }
@@ -64,22 +80,7 @@ extension InlineTagConfigurable {
     public var autoCorrection: UITextAutocorrectionType { return .no }
     public var skipOnWhitespace: Bool { return true }
     public var skipOnReturnKey: Bool { return true }
+    public var placeholderText: String { return "Add tags..." }
     public var numberOfTags: NumberOfTags { return .unlimited }
     public var itemValidation: Validation? { return InlineTagControllerValidation.testEmptiness }
 }
-
-internal class Config {
-    static let instance = Config()
-    private init() {
-        configuration = DefaultConfiguration()
-    }
-
-    var configuration: InlineTagConfigurable
-
-    func set(config: InlineTagConfigurable) {
-        self.configuration = config
-    }
-}
-
-public class DefaultConfiguration: InlineTagConfigurable {}
-public let TagConfig = Config.instance.configuration
