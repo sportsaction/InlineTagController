@@ -1,6 +1,7 @@
 # InlineTagController
-[![GitHub version](https://img.shields.io/github/release/kylebegeman/InlineTagController.svg)
-[![MIT license](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+
+![Github release version](https://img.shields.io/github/release/kylebegeman/InlineTagController.svg)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Package Manager](https://rawgit.com/jlyonsmith/artwork/master/SwiftPackageManager/swiftpackagemanager-compatible.svg)](https://swift.org/package-manager/)
 
