@@ -5,7 +5,6 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Package Manager](https://rawgit.com/jlyonsmith/artwork/master/SwiftPackageManager/swiftpackagemanager-compatible.svg)](https://swift.org/package-manager/)
 [![GitHub contributors](https://img.shields.io/github/contributors/kylebegeman/InlineTagController.svg)]()
-[![GitHub issues](https://img.shields.io/github/issues/badges/InlineTagController.svg)]()
 
 Inline tag creation, validation and editing. Completely configurable and supports multiple custom validation blocks.
 
