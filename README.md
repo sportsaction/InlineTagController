@@ -25,6 +25,9 @@ This class is a direct copy of TFBubbleItUp https://github.com/thefuntasty/TFBub
 
 Add a UIView as a subview and set its class to `InputTagController` in the identity inspector. Provide position constraints and omit a height constraint. Open the Size inspector and set `Intrinsic Size` to `Placeholder`. InputTagController will resize to fit its content. 
 
+## IMPORTANT
+You must call setConfiguration() in order for the class to work correctly. Pass in any class that conforms to **InlineTagConfigurable** or pass in nothing to use the supplied default configuration. See below for more info on InlineTagConfigurable and its properties. 
+
 Add existing tags with the setTags method:
 
 ```swift
@@ -63,15 +66,15 @@ var testEmailAddress: Validation {
 }
 ```
 
-The above two examples are included with **InlineTagControllerValidation** as class vars. To set a validation, update the **itemValidation** property on **InlineTagControllerConfiguration**:
+The above two examples are included with **InlineTagControllerValidation** as class vars. Testing for empty strings is the default validation provided by **DefaultConfiguration**. You can add custom validation to your own configuration class comforming to **InlineTagConfigurable**.
 
 ```swift
-InlineTagControllerConfiguration.itemValidation = someValidation |>> InlineTagControllerValidation.testEmailAddress
+public var itemValidation = someValidation |>> InlineTagControllerValidation.testEmailAddress
 ```
 
 We can chain multiple validations together using the custom **|>>** operator. All validations must pass in order for the tag to be accepted as valid. 
 
-Additionally, you can control the allowed number of tags by settings the **numberOfTags** property on **InlineTagControllerConfiguration** to one of the following values: 
+Additionally, you can control the allowed number of tags by settings the **numberOfTags** property on your **InlineTagConfigurable** conforming class. You can choose between the following two values: 
 
 ```swift
 public enum NumberOfTags {
@@ -79,7 +82,7 @@ public enum NumberOfTags {
     case quantity(Int)
 }
 
-InlineTagControllerConfiguration.numberOfTags = .quantity(3)
+public var numberOfTags = .quantity(3)
 ```
 
 When the tag limit is reached, the text fields will no longer activate when tapping the view. Instead, the last tag will transition to the **edit** state. Setting to **.unlimited** will auto-resize the view based on the intrinsic content size. 
@@ -97,81 +100,52 @@ public protocol InlineTagControllerDelegate: class {
 
 ### Configuration
 
-InlineTagController can be fully customized with the **InlineTagControllerConfiguration** class. Below are all available properties:
+InlineTagController can be fully customized by creating a class or struct that conforms to **InlineTagConfigurable**. YOU MUST make the following call, with or without a custom configuration, in order for the tagging to work properly. 
 
 ```swift
-/// Background color for cell in normal state
-public static var viewBackgroundColor: UIColor = UIColor(red: 0.918, green: 0.933, blue: 0.949, alpha: 1.00)
-
-/// Background color for cell in edit state
-public static var editBackgroundColor: UIColor = UIColor.whiteColor()
-
-/// Background color for cell in invalid state
-public static var invalidBackgroundColor: UIColor = UIColor.whiteColor()
-
-/// Font for cell in normal state
-public static var viewFont: UIFont = UIFont.systemFontOfSize(12.0)
-
-/// Font for cell in edit state
-public static var editFont: UIFont = UIFont.systemFontOfSize(12.0)
-
-/// Font for cell in invalid state
-public static var invalidFont: UIFont = UIFont.systemFontOfSize(12.0)
-
-/// Font color for cell in view state
-public static var viewFontColor: UIColor = UIColor(red: 0.353, green: 0.388, blue: 0.431, alpha: 1.00)
-
-/// Font color for cell in edit state
-public static var editFontColor: UIColor = UIColor(red: 0.510, green: 0.553, blue: 0.596, alpha: 1.00)
-
-/// Font color for cell in invalid state
-public static var invalidFontColor: UIColor = UIColor(red: 0.510, green: 0.553, blue: 0.596, alpha: 1.00)
-
-/// Corner radius for cell in view state
-public static var viewCornerRadius: Float = 2.0
-
-/// Corner radius for cell in edit state
-public static var editCornerRadius: Float = 2.0
-
-/// Corner radius for cell in invalid state
-public static var invalidCornerRadius: Float = 2.0
-
-/// Height for item
-public static var cellHeight: Float = 25.0
-
-/// View insets
-public static var inset: UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
-
-/// Interitem spacing
-public static var interitemSpacing: CGFloat = 5.0
-
-/// Line spacing
-public static var lineSpacing: CGFloat = 5.0
-
-/// Keyboard type
-public static var keyboardType: UIKeyboardType = UIKeyboardType.EmailAddress
-
-/// Keyboard return key
-public static var returnKey: UIReturnKeyType = UIReturnKeyType.Done
-
-/// Field auto-capitalization type
-public static var autoCapitalization: UITextAutocapitalizationType = UITextAutocapitalizationType.None
-
-/// Field auto-correction type
-public static var autoCorrection: UITextAutocorrectionType = UITextAutocorrectionType.No
-
-/// If true it creates new item when user types whitespace
-public static var skipOnWhitespace: Bool = true
-
-/// If true it creates new item when user press the keyboards return key. Otherwise resigns first responder
-public static var skipOnReturnKey: Bool = false
-
-/// Number of items that could be written
-public static var numberOfItems: NumberOfItems = .Unlimited
-
-/// Item has to pass validation before it can be bubbled
-public static var itemValidation: Validation? = nil
+let config = CustomConfig(...)
+setConfiguration(config)
 ```
+
+Passing in your custom configuration will assign it to the class, passing nothing will automatically asign the default provided by InlineTagController. Below is the declaration for **InlineTagConfigurable**:
+
+```swift
+public protocol InlineTagConfigurable {
+    var backgroundColor: ColorCollection { get } // Background colors for all states
+    var fontColor: ColorCollection { get } // Font color for all states
+    var font: FontCollection { get } // Font for all states
+    var radius: ValueCollection { get } // Corner radius for all states
+
+    var cellHeight: Float { get }
+    var inset: UIEdgeInsets { get }
+    var interitemSpacing: CGFloat { get }
+    var lineSpacing: CGFloat { get }
+    var keyboardType: UIKeyboardType { get }
+    var returnKey: UIReturnKeyType { get }
+    var autoCapitalization: UITextAutocapitalizationType { get }
+    var autoCorrection: UITextAutocorrectionType { get }
+    var skipOnWhitespace: Bool { get }
+    var skipOnReturnKey: Bool { get }
+    var placeholderText: String { get }
+    var numberOfTags: NumberOfTags { get }
+    var itemValidation: Validation? { get }
+}
+```
+
+We use a basic typealias to manage collections of values for multiple states. 
+
+```swift
+public typealias ColorCollection = (view: UIColor, edit: UIColor, invalid: UIColor, placeholder: UIColor?)
+public typealias FontCollection = (view: UIFont, edit: UIFont, invalid: UIFont, placeholder: UIFont)
+public typealias ValueCollection = (view: CGFloat, edit: CGFloat, invalid: CGFloat)
+```
+
+Each property of the tuple represents a state of the tag cell.
+
+**view** - the appearance of a created and valid tag   
+**edit** - the appearance of a tag being created/edited   
+**invalid** - the appearance of a tag that is invalid   
+**placeholder** - not a state, but requires values for font and color   
 
 ## TO-DO
 
