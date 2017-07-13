@@ -94,7 +94,7 @@ class InlineTagCell: UICollectionViewCell, UITextFieldDelegate {
 
     override var intrinsicContentSize: CGSize {
         var textFieldSize = self.textField.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: self.textField.bounds.height))
-        textFieldSize.width += 20
+        textFieldSize.width += 10
 
         return textFieldSize
     }
