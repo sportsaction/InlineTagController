@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/InlineTagController.swift"
-            timestampString = "521582474.518573"
+            timestampString = "521658553.292309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "configure()"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
+            landmarkName = "createAndSwitchToNewCell(cell:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

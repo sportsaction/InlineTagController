@@ -163,6 +163,12 @@ extension InlineTagCell {
             self.delegate?.createAndSwitchToNewCell(cell: self)
         } else if string == "" && textField.text == "" {
             self.delegate?.shouldDeleteCellInFrontOfCell(cell: self)
+        } else if !InlineTagControllerValidation.isValid(text: self.textField.text) {
+            self.set(mode: .invalid)
+            return true
+        } else if InlineTagControllerValidation.isValid(text: self.textField.text) {
+            self.set(mode: .edit)
+            return true
         } else {
             return self.mode == .edit
         }
