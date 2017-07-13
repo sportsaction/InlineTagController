@@ -24,15 +24,21 @@ public class InlineTagControllerValidation {
     }
 
     public class var testEmailAddress: Validation {
-        return { text in
+        return { (text: String) in
             let emailRegex = "^[+\\w\\.\\-']+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{2,})+$"
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
             return emailTest.evaluate(with: text)
         }
     }
 
+    public class var testLegnth: Validation {
+        return { (text: String) in
+            return text.characters.count < 8
+        }
+    }
+
     public class func combine(v1: @escaping Validation, v2: @escaping Validation) -> Validation {
-        return { text in return v1(text) && v2(text) }
+        return { (text: String) in return v1(text) && v2(text) }
     }
 
     public class func isValid(text: String?) -> Bool {

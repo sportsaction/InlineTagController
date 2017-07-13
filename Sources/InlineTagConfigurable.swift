@@ -82,5 +82,5 @@ extension InlineTagConfigurable {
     public var skipOnReturnKey: Bool { return true }
     public var placeholderText: String { return "Add tags..." }
     public var numberOfTags: NumberOfTags { return .unlimited }
-    public var itemValidation: Validation? { return InlineTagControllerValidation.testEmptiness }
+    public var itemValidation: Validation? { return InlineTagControllerValidation.testLegnth }
 }
