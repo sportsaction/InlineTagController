@@ -192,6 +192,7 @@ public class InlineTagController: UICollectionView {
             return Tag(text: tag)
         }
 
+        self.placeholderLabel.isHidden = true
         self.configure(with: tagItems)
     }
 

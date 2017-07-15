@@ -19,6 +19,7 @@ class ViewController: UIViewController, InlineTagControllerDelegate {
 
         tagController.setConfiguration(CustomConfiguration())
         tagController.tagDelegate = self
+        tagController.setTags(["Pizza"])
     }
 
     func inlineTagController(_ controller: InlineTagController, didFinishEditing text: String) {
