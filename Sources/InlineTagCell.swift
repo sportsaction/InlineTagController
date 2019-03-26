@@ -10,7 +10,7 @@ import UIKit
 
 class TagTextField: UITextField {
     override func deleteBackward() {
-        let shouldDismiss = self.text?.characters.count == 0
+        let shouldDismiss = self.text?.count == 0
         super.deleteBackward()
 
         if shouldDismiss {
@@ -69,8 +69,8 @@ class InlineTagCell: UICollectionViewCell, UITextFieldDelegate {
         self.textField.delegate = self
         self.addSubview(self.textField)
 
-        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[field]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["field": self.textField])
-        let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(-4)-[field]-(-4)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["field": self.textField])
+        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[field]-0-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["field": self.textField])
+        let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(-4)-[field]-(-4)-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["field": self.textField])
 
         self.addConstraints(hConstraints)
         self.addConstraints(vConstraints)
@@ -190,16 +190,16 @@ extension InlineTagCell {
         return false
     }
 
-    func editingChanged(_ textField: UITextField) {
+    @objc func editingChanged(_ textField: UITextField) {
         delegate?.didChangeText(cell: self, text: textField.text ?? "")
         delegate?.needUpdateLayout(cell: self)
     }
 
-    func editingDidBegin(_ textField: UITextField) {
+    @objc func editingDidBegin(_ textField: UITextField) {
         set(mode: .edit)
     }
 
-    func editingDidEnd(_ textField: UITextField) {
+    @objc func editingDidEnd(_ textField: UITextField) {
         set(mode: InlineTagControllerValidation.isValid(text: textField.text) ? .view : .invalid)
         delegate?.editingDidEnd(cell: self, text: textField.text ?? "")
     }

@@ -131,7 +131,7 @@ public class InlineTagController: UICollectionView {
         }
     }
 
-    internal func didTapOnView(_ sender: AnyObject) {
+    @objc internal func didTapOnView(_ sender: AnyObject) {
         self.selectLastPossible()
     }
 
@@ -335,7 +335,7 @@ extension InlineTagController: UICollectionViewDelegate, UICollectionViewDataSou
         let tag = self.tags[indexPath.item]
 
         sizingCell.textField.text = tag.text
-        let size = sizingCell.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = sizingCell.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
 
         let layoutInset = (self.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
         let maximumWidth = self.bounds.width - layoutInset.left - layoutInset.right

@@ -30,7 +30,9 @@ public enum NumberOfTags {
     case quantity(Int)
 }
 
-public class DefaultConfiguration: InlineTagConfigurable {}
+public class DefaultConfiguration: InlineTagConfigurable {
+    public init() { }
+}
 public let TagConfig = Config.instance.configuration
 
 public protocol InlineTagConfigurable {
@@ -65,8 +67,8 @@ extension InlineTagConfigurable {
         return (view: 8.0, edit: 8.0, invalid: 8.0)
     }
     public var font: FontCollection {
-        let font = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightMedium)
-        let phFont = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightLight)
+        let font = UIFont.systemFont(ofSize: 12.0, weight: UIFont.Weight.medium)
+        let phFont = UIFont.systemFont(ofSize: 12.0, weight: UIFont.Weight.light)
         return (view: font, edit: font, invalid: font, placeholder: phFont)
     }
 

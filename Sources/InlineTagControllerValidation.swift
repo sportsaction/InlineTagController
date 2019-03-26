@@ -33,7 +33,7 @@ public class InlineTagControllerValidation {
 
     public class var testLegnth: Validation {
         return { (text: String) in
-            return text.characters.count < 8
+            return text.count < 8
         }
     }
 
